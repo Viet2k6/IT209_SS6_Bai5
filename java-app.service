@@ -1,0 +1,12 @@
+[Unit]
+Description=Java Application Service
+After=network.target
+
+[Service]
+User=java-runner
+ExecStart=/bin/sh -c 'echo "Java app started as $(id -un)"; exec /usr/bin/sleep 1000'
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
